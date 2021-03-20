@@ -28,7 +28,7 @@ A React TS application that is used to play the memory game with the help of use
 
 
 
-I have use useReducer, useEffect and useState to save the states 
+I have use useReducer, useEffect and useState to save the states. 
 These are called Hooks (such as a useReducer hook) they store the recent addition to React that enable
 more of your components to be written as functions by providing less complex 
 alternatives to class features. One significant advantage is that typing function
