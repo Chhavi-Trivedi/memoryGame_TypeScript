@@ -1,21 +1,29 @@
+// main logic is here
+// we will use useReducer, useEffect and useState to save the state 
 import React, { useReducer, useEffect, useState } from 'react';
+
 import { Flip } from 'react-awesome-reveal';
 import ModalComponent from '../resultModal';
 import { Images } from '../Images';
 import { DefaultImg } from '../Images';
 import '../uiComponent/ui.css';
 
+// there are two actions 
+// 1. when we click the card
+// when we restart
 type Actions =
   | { type: 'CARD_CLICKED', index: number }
   | { type: 'RESTART' }
 
-
+//cardtype is a interface use to store 
+//details about the card
 interface CardTypes {
   id: number,
   imgUrl?: string,
   open?: boolean,
 }
 
+// IState stores the details of the current state
 interface IState {
   mCards: CardTypes[],
   clickedCardId: Array<any>,
@@ -23,7 +31,7 @@ interface IState {
   resultStatus?: boolean
 }
 
-
+//This is to randomly suffle the cards is the  screen
 const shuffleCards = () => {
   let updatedCards = [];
   for (var i = 0; i < 12; i++) {
@@ -37,8 +45,10 @@ const shuffleCards = () => {
   return updatedCards;
 }
 
+//for initial state
 const initialState: IState = { mCards: shuffleCards(), clickedCardCount: 0, clickedCardId: [],resultStatus:false };
 
+//to check if we won the match
 const checkResult = (cards: Array<CardTypes>) => {
   let value = true;
   cards.map(eachCard => {
@@ -53,6 +63,9 @@ const checkResult = (cards: Array<CardTypes>) => {
 
 }
 
+// reducer function to change the state
+// if the last card clicked matched the current card we'll set them both open
+//else keep close the last one
 const reducer: React.Reducer<IState, Actions> = (state, action) => {
   switch (action.type) {
     
@@ -123,7 +136,7 @@ const Uirender: React.FC = () => {
           </div>
         </Flip>
       )}
-
+// when player won 
       {state.resultStatus &&
        <ModalComponent
         isModalOpen = { isResultOpen }
