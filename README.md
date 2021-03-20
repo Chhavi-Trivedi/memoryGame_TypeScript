@@ -1,9 +1,10 @@
 
 
-## Available Scripts
+## Memory Game Using TypeScript and React
+To run the app -
 
 In the project directory, you can run:
-
+### `npm install`
 ### `npm start`
 
 Runs the app in the development mode.<br />
