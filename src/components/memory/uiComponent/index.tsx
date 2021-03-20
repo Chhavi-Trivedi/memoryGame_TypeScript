@@ -1,5 +1,27 @@
-// main logic is here
+// Algorithm -
+// the player will start the game 
+// he/she will click on a card 
+// once clicked the it will get checked with the last card(which initially is none)
+//if the two cards matches, both the cards will remain open
+//othervise the older card will be closed
+//the process will repeate it we see all the cards open
+//when all the cards are opened 
+//the user will got the game
+//a message box will come
+//indicating "congrats, you won" 
+//the player can play the game again 
+//by clicking on the restart game button
+
+
+
 // we will use useReducer, useEffect and useState to save the state 
+//Hooks (such as a useReducer hook) are a recent addition to React that enable
+//more of your components to be written as functions by providing less complex 
+//alternatives to class features. One significant advantage is that typing function
+//components in TypeScript is simpler and more direct.
+
+
+
 import React, { useReducer, useEffect, useState } from 'react';
 
 import { Flip } from 'react-awesome-reveal';
